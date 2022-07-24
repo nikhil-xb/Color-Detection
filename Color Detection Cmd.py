@@ -8,18 +8,19 @@ ap = argparse.ArgumentParser()
 ap.add_argument('-i', '--image', required=True, help="Image Path")
 args = vars(ap.parse_args())
 image_path = args['image']
+
 # Reading image using OpenCv
 image_path= "2.1.jpg"
 img = cv2.imread(image_path)
 
 clicked = False
 r = g = b = xpos = ypos = 0
+
 # Reading the colors from the csv files
 index = ["color", "color_name", "hex", "R", "G", "B"]
 final_index= ["File Name", "Color Name", "R", "G", "B"]
 df = pd.read_csv('colors.csv', names=index, header=None)
 final_result= pd.read_csv('final_result.csv', names= final_index, header=None)
-
 
 
 # get color name
@@ -31,7 +32,6 @@ def getColorName(R, G, B):
             minimum = d
             cname = df.loc[i, "color_name"]
     return cname
-
 
 
 def draw_function(event, x, y,*args):
