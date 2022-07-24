@@ -10,7 +10,7 @@ args = vars(ap.parse_args())
 image_path = args['image']
 
 # Reading image using OpenCv
-image_path= "2.1.jpg"
+#image_path= "2.1.jpg"
 img = cv2.imread(image_path)
 
 clicked = False
